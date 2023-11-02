@@ -3,10 +3,8 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const orderRouter = createTRPCRouter({
-  getLatest: publicProcedure.query(async ({ ctx }) => {
-    console.log(await ctx.db.order.findMany());
-
-    return await ctx.db.order.findMany({
+  getLatest: publicProcedure.query(({ ctx }) => {
+    return ctx.db.order.findMany({
       where: { complete: false },
       orderBy: { createdAt: "desc" },
     });

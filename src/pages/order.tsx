@@ -31,7 +31,10 @@ const Order = () => {
       )}
       <div className="flex flex-row flex-wrap justify-center gap-4">
         {orderOptions.map((el) => (
-          <div className="m-3 flex flex-col justify-center rounded-lg border border-gray-600 p-1 align-middle ">
+          <div
+            key={el.title}
+            className="m-3 flex flex-col justify-center rounded-lg border border-gray-600 p-1 align-middle "
+          >
             <h2 className="px-2 py-1 pb-2">{el.title}</h2>
             <img
               className="h-20"
